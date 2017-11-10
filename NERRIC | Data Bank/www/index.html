@@ -44,10 +44,11 @@
                 
                 <div>
                     <p class="center" style="padding:10px;">
-                        We are try to collect images of SHOES in order to train our Machine Learning Algorithm.
+                        We are trying to collect images of SHOES in order to train our Machine Learning Algorithm.
                         <br><br>Your contribution is much appreciated. Thanks.
                     </p>
-                    <button class="btn green lighten-3 black-text" id="but-take">TAKE IMAGE</button>
+                    <button class="btn green lighten-3 black-text" id="but-sel">SELECT IMAGES FROM GALLARY</button><br><br>
+                    <button class="btn green darken-1 white-text" id="but-take">TAKE IMAGE FROM CAMERA</button>
                     <p class="center" style="padding:20px;">Just take the image of your shoes and we will take care of the rest.</p>
                     <div style="margin-bottom:10px;">
                         <p class="uploaded-image-count chip hide">
@@ -68,6 +69,10 @@
                 </div>
                 
             </div>
+        </div>
+        
+        <div class="center" style="position:fixed; bottom:0; background:#f0f0f0; width:100vw;padding:0px;font-weight:300;font-size:10px">
+            <p>Developed by Saad Ahmad</p>
         </div>
         
         <script type="text/javascript" src="cordova.js"></script>
@@ -102,9 +107,20 @@ var app = {
 
 
 function readyButton(){
+    
+    $('#but-sel').click(function(){
+        window.imagePicker.getPictures(function(results) {
+		  for (var i = 0; i < results.length; i++) {
+                sentDataToServer(results[i]);
+		  }
+        }, function (error) {
+                console.log(error);
+		      alert("Error : " + error);
+	       });   
+    }); 
+    
+    
     $('#but-take').click(function(){   
-        console.log("hello");
-        
         navigator.camera.getPicture(onSuccess, onFail, { quality: 20,
             destinationType: Camera.DestinationType.FILE_URL
         });
@@ -148,7 +164,9 @@ function win(r) {
 }
  
 function fail(error) {
-    alert("error" + error);
+    imageUploadCount++;
+    showImageUploadCount();
+    alert("Error : The Image could not be uploaded. Chack your internet connection");
     console.log(error);
 }
 
