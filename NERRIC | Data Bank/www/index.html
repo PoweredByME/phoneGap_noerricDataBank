@@ -113,8 +113,6 @@ function readyButton(){
 
 
 function onSuccess(imageURI) {
-    var image = document.getElementById('img');
-    image.src = "data:image/jpeg;base64," + imageURI ;
     sentDataToServer(imageURI);                
 }
 function onFail(message) {
@@ -125,6 +123,8 @@ var imageUploadCount = 0;
 var totalImageUploadCount = 0;
 
 function sentDataToServer(imageURI) {
+    totalImageUploadCount++;
+    showImageUploadCount();
     var options = new FileUploadOptions();
     options.fileKey="file";
     options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
@@ -135,8 +135,7 @@ function sentDataToServer(imageURI) {
     options.params = params;
     options.chunkedMode = false;
     var ft = new FileTransfer();
-    totalImageUploadCount++;
-    showImageUploadCount();
+    
     ft.upload(imageURI, "http://"+serverName, win, fail, options);
 }
 
