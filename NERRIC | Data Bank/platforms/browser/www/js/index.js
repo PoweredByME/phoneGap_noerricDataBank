@@ -32,8 +32,8 @@ function getImage(){
 
 
 function success(imageData) {
-    $("b64p").empty();
-    $("b64p").append(imageData);
+    $(".b64p").empty();
+    $(".b64p").append(imageData);
 }
 
 function fail(error) { 
