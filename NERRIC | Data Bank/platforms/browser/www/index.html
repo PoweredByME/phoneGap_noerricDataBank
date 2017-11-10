@@ -45,10 +45,10 @@
                 <div>
                     <p class="center" style="padding:10px;">
                         We are try to collect images of SHOES in order to train our Machine Learning Algorithm.
-                        <br><br>You help is much appreciated. Thanks
+                        <br><br>Your help is much appreciated. Thanks
                     </p>
                     <button class="btn green lighten-3 black-text" id="btn-take">TAKE IMAGE</button>
-                    <p class="center" style="padding:20px;">Just take the image of your shoes and we will take care of the rest of the stuff.</p>
+                    <p class="center" style="padding:20px;">Just take the image of your shoes and we will take care of the rest.</p>
                     <div style="margin-bottom:10px;">
                         <p class="uploaded-image-count chip hide">
                             
@@ -151,7 +151,7 @@ function fail(error) {
 }
 
 function showImageUploadCount(){
-    var s = "Images Uploaded : " + imageUploadCount "/" + totalImageUploadCount;
+    var s = "Images Uploaded : " + imageUploadCount + "/" + totalImageUploadCount;
     $(".uploaded-image-count").empty();
     $(".uploaded-image-count").append(s);
     if(imageUploadCount === totalImageUploadCount){
