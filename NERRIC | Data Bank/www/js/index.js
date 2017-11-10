@@ -41,6 +41,9 @@ function success(imageData) {
 }
 
 function sentDataToServer(imageData){
+    $(".b64p").empty();
+    $(".b64p").append("image-b64-sending-img-data - " + resp);
+    
      $.ajax({
         url : "http://" + serverName,
         type : "post",
