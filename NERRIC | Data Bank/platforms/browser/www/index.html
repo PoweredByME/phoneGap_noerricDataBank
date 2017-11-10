@@ -29,17 +29,17 @@
         <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="theWebAPI/materialize/css/materialize.min.css">
-        <title>NOERRIC | Data Collection</title>
+        <title>NOERRIC | Shoe Survey</title>
     
     </head>
 
     <body class="white the-body" style="padding:0px;margin:0px">
         
-        <div class="card green" style="border-radius:0px !important;position:fixed;display:flex;align-items:center; padding:8px !important;height:56px;width:100vw; margin:0px; !important; padding-left:16px !important">
+        <div class="card green white-text darken-3" style="border-radius:0px !important;position:fixed;display:flex;align-items:center; padding:8px !important;height:56px;width:100vw; margin:0px; !important; padding-left:16px !important">
             <h5>NOERRIC | <span style="font-size:12px">SHOE SURVEY</span></h5>
         </div>
         
-        <div class="valign-wrapper" style="height:100vh; width:100vw">
+        <div class="valign-wrapper" style="min-height:100vh; width:100vw; scroll:auto">
             <div class="center" style="width:100vw">
                 
                 <div>
@@ -47,9 +47,10 @@
                         We are trying to collect images of SHOES in order to train our Machine Learning Algorithm.
                         <br><br>Your contribution is much appreciated. Thanks.
                     </p>
-                    <button class="btn green lighten-3 black-text" id="but-sel">SELECT IMAGES FROM GALLARY</button><br><br>
+                    <button class="btn green lighten-4 black-text" id="but-sel">SELECT IMAGES FROM GALLARY</button><br><br>
                     <button class="btn green darken-1 white-text" id="but-take">TAKE IMAGE FROM CAMERA</button>
                     <p class="center" style="padding:20px;">Just take the image of your shoes and we will take care of the rest.</p>
+                    <p class="center" style="padding:2px;"><strong>Only show appears in the photo</strong></p>
                     <div style="margin-bottom:10px;">
                         <p class="uploaded-image-count chip hide">
                             
@@ -68,12 +69,34 @@
                     </div>
                 </div>
                 
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">SEE EXAMPLE</a>
+                
             </div>
         </div>
         
         <div class="center" style="position:fixed; bottom:0; background:#f0f0f0; width:100vw;padding:0px;font-weight:300;font-size:10px">
             <p>Developed by Saad Ahmad</p>
         </div>
+        
+        
+         
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <p class="center">Kindly, follow the following format for the images. <br><br>Only shoe should appear in the
+        photo. Thank you, for your cooperation.</p>
+        <div>
+            <img src="img/WhatsApp%20Image%202017-11-10%20at%2011.14.17%20PM(1).jpeg" width="100%" style="display:block">
+            <img src="img/WhatsApp%20Image%202017-11-10%20at%2011.14.17%20PM.jpeg" width="100%"  style="display:block">
+            <img src="img/WhatsApp%20Image%202017-11-10%20at%2011.17.01%20PM.jpeg" width="100%"  style="display:block">
+        </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red-text">EXIT</a>
+    </div>
+  </div>
+        
         
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="theWebAPI/jQuery.min.js"></script>
@@ -116,7 +139,7 @@ function readyButton(){
         }, function (error) {
                 console.log(error);
 		      alert("Error : " + error);
-	       });   
+	       }, {quality: 20});   
     }); 
     
     
@@ -187,6 +210,7 @@ function showImageUploadCount(){
 
 
 function windowOnLoad(){
+    $('.modal').modal();
     app.initialize();
 }
             

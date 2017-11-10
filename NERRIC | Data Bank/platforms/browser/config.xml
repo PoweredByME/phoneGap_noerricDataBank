@@ -6,12 +6,16 @@
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <name>NOERRIC | Data Bank</name>
+    <name>NOERRIC | Shoe Survey</name>
     <description>
-        This is a simple that gets image from your camera and 
-        upload it automatically to NOERRIC Data center. The purpose
-        of this app is to make a dataset for their Machine learning 
+        For Research Purpose ONLY
+        
+        The purpose of this app is to make a dataset for their Machine learning 
         Algorithm
+        
+        This is a simple app that gets image from your camera and 
+        upload it automatically to NOERRIC Machine Learning Algorithm.
+        
     </description>
     <author email="saadkwi12@hotmail.com" href="http://phonegap.com">
         Saad Ahmad
