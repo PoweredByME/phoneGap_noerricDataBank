@@ -68,8 +68,8 @@
                         </div>
                     </div>
                 </div>
-                <p class="center uploaded-image-count" style="padding:2px;"><strong>Only shoe appears in the photo</strong></p>
-                <a class="waves-effect waves-light btn modal-trigger uploaded-image-count" href="#modal1">SEE EXAMPLE</a>
+                <p class="center instruction" style="padding:2px;"><strong>Only shoe appears in the photo</strong></p>
+                <a class="waves-effect waves-light btn modal-trigger instruction" href="#modal1">SEE EXAMPLE</a>
                 
             </div>
         </div>
@@ -200,11 +200,13 @@ function showImageUploadCount(){
     if(imageUploadCount === totalImageUploadCount){
         $(".uploaded-image-count").addClass("hide");
         $(".image-loader").addClass("hide");
+        $(".instruction").removeClass("hide");
         imageUploadCount = 0;
         totalImageUploadCount = 0;
     }else{
         $(".uploaded-image-count").removeClass("hide");
         $(".image-loader").removeClass("hide");
+        $(".instruction").addClass("hide");
     }
 }
 
