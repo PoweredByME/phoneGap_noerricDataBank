@@ -1,11 +1,15 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.nust_messlife" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>NOERRIC | Data Bank</name>
+    <name>NOERRIC | Shoe Survey</name>
     <description>
-        This is a simple that gets image from your camera and 
-        upload it automatically to NOERRIC Data center. The purpose
-        of this app is to make a dataset for their Machine learning 
+        For Research Purpose ONLY
+        
+        The purpose of this app is to make a dataset for their Machine learning 
         Algorithm
+        
+        This is a simple app that gets image from your camera and 
+        upload it automatically to NOERRIC Machine Learning Algorithm.
+        
     </description>
     <author email="saadkwi12@hotmail.com" href="http://phonegap.com">
         Saad Ahmad

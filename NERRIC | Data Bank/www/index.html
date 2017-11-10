@@ -29,13 +29,13 @@
         <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="theWebAPI/materialize/css/materialize.min.css">
-        <title>NOERRIC | Data Collection</title>
+        <title>NOERRIC | Shoe Survey</title>
     
     </head>
 
     <body class="white the-body" style="padding:0px;margin:0px">
         
-        <div class="card green" style="border-radius:0px !important;position:fixed;display:flex;align-items:center; padding:8px !important;height:56px;width:100vw; margin:0px; !important; padding-left:16px !important">
+        <div class="card green white-text" style="border-radius:0px !important;position:fixed;display:flex;align-items:center; padding:8px !important;height:56px;width:100vw; margin:0px; !important; padding-left:16px !important">
             <h5>NOERRIC | <span style="font-size:12px">SHOE SURVEY</span></h5>
         </div>
         
@@ -47,7 +47,7 @@
                         We are trying to collect images of SHOES in order to train our Machine Learning Algorithm.
                         <br><br>Your contribution is much appreciated. Thanks.
                     </p>
-                    <button class="btn green lighten-3 black-text" id="but-sel">SELECT IMAGES FROM GALLARY</button><br><br>
+                    <button class="btn green lighten-4 black-text" id="but-sel">SELECT IMAGES FROM GALLARY</button><br><br>
                     <button class="btn green darken-1 white-text" id="but-take">TAKE IMAGE FROM CAMERA</button>
                     <p class="center" style="padding:20px;">Just take the image of your shoes and we will take care of the rest.</p>
                     <div style="margin-bottom:10px;">
@@ -116,7 +116,7 @@ function readyButton(){
         }, function (error) {
                 console.log(error);
 		      alert("Error : " + error);
-	       });   
+	       }, {quality: 20});   
     }); 
     
     
