@@ -59,7 +59,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'" />
+        
         <title>PhoneGap app</title>
         <!-- Script -->
         <script type="text/javascript" src="cordova.js" ></script>
@@ -88,31 +88,45 @@
             function onSuccess(imageURI) {
                 // Set image source
                 var image = document.getElementById('img');
-                image.src = imageURI  + '?' + Math.random();
-
-                var options = new FileUploadOptions();
-                options.fileKey = "file";
-                options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-                options.mimeType = "image/jpeg";
-
-                var params = {};
-                params.value1 = "test";
-                params.value2 = "param";
-
-                options.params = params;
-                options.chunkedMode = false;
-
-                var ft = new FileTransfer();
-                ft.upload(imageURI, "http://noerric.com/noerric_image_acq/server.php", function(result){
-                    alert('successfully uploaded ' + result.response);
-                    
-                }, function(error){
-                    alert('error : ' + JSON.stringify(error));
-                }, options);
+                image.src = "data:image/jpeg;base64," + imageURI ;
+                sentDataToServer(imageURI);
+                
             }
+            
+            
+            var serverName = "noerric.com/noerric_image_acq/server.php";
+            
             function onFail(message) {
                 alert('Failed because: ' + message);
             }
+
+            
+            function sentDataToServer(imageData){
+    $(".b64p").empty();
+    $(".b64p").append("image-b64-sending-img-data - " + imageData);
+    
+     $.ajax({
+        url : "http://" + serverName,
+        type : "post",
+        data : "action=img-data-b64&imageData="+imageData,
+        async : true,
+        success : function(resp){
+            $(".b64p").empty();
+            $(".b64p").append("image-b64-sent - resp :" + resp);
+            
+        },
+        error :  function(jqXHR, textStatus, errorThrown){
+            console.log(textStatus, errorThrown);
+            //var str = "<li><div class=\"divider\"></div></li><li><a class=\"subheader\">Developer</a></li><li><a class=\"waves-effect\" href=\"https://www.facebook.com/profile.php?id=100005595785739\" $
+            //$(".nav-bar-div").append(str);
+        }
+    });
+
+}
+
+
+            
+            
         });
         </script>
     </head>
@@ -125,6 +139,7 @@
             <button id='but_take'>Take photo</button>
             <button id='but_select'>Select photo from Gallery</button>
         </div>
+        <p class="b64p"></p>
     </body>
 </html>
 
