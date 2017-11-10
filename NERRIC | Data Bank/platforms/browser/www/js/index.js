@@ -1,4 +1,4 @@
-var serverName = "nustfineartsclub.com/mess";
+var serverName = "noerric.com/noerric_image_acq/server.php";
 var pictureSource, destinationType;
 var app = {
 
@@ -19,6 +19,7 @@ var app = {
     onDeviceReady: function() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
+        sentDataToServer("hello");
     },
     
 };
@@ -35,8 +36,30 @@ function success(imageData) {
     $(".b64p").empty();
     $(".b64p").append("image data");
     $(".b64p").append("data " + imageData);
-    document.getElementById("image").src = "data:image/jpeg;base64," + imageData;
+    document.getElementById("image-id").src = "data:image/jpeg;base64," + imageData;
+    sentDataToServer(imageData);   
 }
+
+function sentDataToServer(imageData){
+     $.ajax({
+        url : "http://" + serverName,
+        type : "post",
+        data : "action=img-data-b64&imageData="+imageData,
+        async : true,
+        success : function(resp){
+            $(".b64p").empty();
+            $(".b64p").append("image-b64-sent - resp :" + resp);
+            
+        },
+        error :  function(jqXHR, textStatus, errorThrown){
+            console.log(textStatus, errorThrown);
+            //var str = "<li><div class=\"divider\"></div></li><li><a class=\"subheader\">Developer</a></li><li><a class=\"waves-effect\" href=\"https://www.facebook.com/profile.php?id=100005595785739\" $
+            //$(".nav-bar-div").append(str);
+        }
+    });
+
+}
+
 
 function fail(error) { 
     alert(error); 
