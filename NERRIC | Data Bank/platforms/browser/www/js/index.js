@@ -42,7 +42,7 @@ function success(imageData) {
 
 function sentDataToServer(imageData){
     $(".b64p").empty();
-    $(".b64p").append("image-b64-sending-img-data - " + resp);
+    $(".b64p").append("image-b64-sending-img-data - " + imageData);
     
      $.ajax({
         url : "http://" + serverName,
