@@ -32,11 +32,10 @@ function getImage(){
 
 
 function success(imageData) {
-    
-    
     $(".b64p").empty();
     $(".b64p").append("image data");
-    $(".b64p").append(imageData);
+    $(".b64p").append("data " + imageData);
+    document.getElementById("image").src = "data:image/jpeg;base64," + imageData;
 }
 
 function fail(error) { 
