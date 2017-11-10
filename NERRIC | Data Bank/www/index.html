@@ -45,9 +45,9 @@
                 <div>
                     <p class="center" style="padding:10px;">
                         We are try to collect images of SHOES in order to train our Machine Learning Algorithm.
-                        <br><br>Your help is much appreciated. Thanks
+                        <br><br>Your contribution is much appreciated. Thanks.
                     </p>
-                    <button class="btn green lighten-3 black-text" id="btn-take">TAKE IMAGE</button>
+                    <button class="btn green lighten-3 black-text" id="but-take">TAKE IMAGE</button>
                     <p class="center" style="padding:20px;">Just take the image of your shoes and we will take care of the rest.</p>
                     <div style="margin-bottom:10px;">
                         <p class="uploaded-image-count chip hide">
@@ -95,13 +95,16 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         readyButton();
+        console.log ("hel");
     },
     
 };
 
 
 function readyButton(){
-    $('#but-take').click(function(){      
+    $('#but-take').click(function(){   
+        console.log("hello");
+        
         navigator.camera.getPicture(onSuccess, onFail, { quality: 20,
             destinationType: Camera.DestinationType.FILE_URL
         });
@@ -169,6 +172,8 @@ function showImageUploadCount(){
 function windowOnLoad(){
     app.initialize();
 }
+            
+           window.onload = windowOnLoad;
         </script>
     </body>
 
