@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Chrome, Firefox and Opera -->
+        <meta name="theme-color" content="#301934">
+        <!-- Windows Phone -->
+        <meta name="msapplication-navbutton-color" content="#301934">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="theWebAPI/materialize/css/materialize.min.css">
+    <title>NUST | Mess Life</title>
+</head>
+
+<body class="orange the-body" style="padding:0px;margin:0px">
+
+    
+    <div class="theLoadScreen" style="overflow:hidden;height:100%;width:100%;padding:0px;margin:0px;position:absolute;top:0;left:0;z-index:1000;background-color:#301934;-webkit-backface-visibility: hidden;">
+        <div class="valign-wrapper" style="position:relative !important;top:0;left:0;height:100%;width:100%;-webkit-backface-visibility: hidden;">
+            <div class="container center white-text" style="">
+                <h5 style="font-weight:300">NUST | Mess Life</h5>
+                <div style="padding:10px;">
+                    <div class="preloader-wrapper small active content-loader">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper left">
+                            <div class="circle"></div>
+                            </div><div class="gap-patch">
+                            <div class="circle"></div>
+                            </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="font-weight:500" class="chip loading-message">Loading</p>
+            </div>
+            <div style="position:absolute !important;bottom:0;width:100%;padding:40px;padding-left:20px;padding-right:20px;-webkit-backface-visibility: hidden;" class="white-text">
+                <div class="container center">
+                    <div style="display:flex;flex-direction:column;align-items:center">
+                        <div class="valign-wrapper">
+                            <img src="img/nfaclogo.png" height="60">
+                            <p style="text-align:left; font-weight:200; margin-left: 10px;">Powered by <br>NUST Fine Arts Club</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <ul id="slide-out" class="side-nav nav-bar-div">
+        <li>
+            <div class="user-view orange">
+                <a href="http://nustfineartsclub.com/mess" target="_blank" style="color:white !important">NUST | Mess Life</a>
+            </div></li>
+        <li><a href="http://www.nust.edu.pk/Pages/Home.aspx">NUST | Pakistan</a></li>
+        <li><a href="http://nustfineartsclub.com" target="_blank">NUST Fine Arts Club</a></li>
+        <li>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header">TIMING DURING HOLIDAYS</div>
+                <div class="collapsible-body grey lighten-4 center">
+                    <p style="margin:0px !important;">
+                        <span style="display:block">Breakfast - 9:00am to 10:30am </span>
+                        <span style="display:block">Lunch - 2:00pm to 3:30pm</span>
+                    </p>               
+                </div>
+            </li>
+        </ul>
+        
+        </li>
+    </ul>
+    
+    
+    
+    
+    
+    
+    
+    <div class="nav-div z-depth-2">
+        <div class="valign-wrapper" style="height:100%">
+             <a href="#" data-activates="slide-out" class="button-collapse">
+            <div class="hamburger" style="margin-left:16px;">
+                <div></div>
+                <div></div>
+                <div></div>
+                 </div></a>
+            <p class="white-text" style="padding:0px;margin:0px;font-weight:200;font-size:18px;margin-left:20px;">
+                    NUST | Mess Life
+            </p>
+        </div>
+    </div>
+    
+    <div class="result-div">
+        <p class="chip orange next-meal-time" style="color:white;font-weight:300"></p>    
+        <h5 class="white-text hide-on-large-only current-meal" style="font-weight:300"></h5>
+        <h4 class="white-text hide-on-med-and-down current-meal"  style="font-weight:300"></h4>
+        <p style="color:white;font-weight:200" class="date-para"></p>  
+    </div>
+    
+    
+    
+    
+    <div style="margin-top:-5px">
+        <div class="row the-mess-menu">
+            <ul id="tabs-swipe-demo" class="tabs" style="background-color:#301934">
+                <li class="tab col s4 white-text"><a class="active"  href="#swipe-1">Monday</a></li>
+                <li class="tab col s4 white-text"><a class="" href="#swipe-2">Tuesday</a></li>
+                <li class="tab col s4 white-text"><a class="" href="#swipe-3">Wednesday</a></li>
+                <li class="tab col s4 white-text"><a class="" href="#swipe-4">Thursday</a></li>
+                <li class="tab col s4 white-text"><a class="" href="#swipe-5">Friday</a></li>
+                <li class="tab col s4 white-text"><a class="" href="#swipe-6">Saturday</a></li>
+                <li class="tab col s4 white-text"><a class="" href="#swipe-7">Sunday</a></li>
+            </ul>
+            </div>
+    </div>
+    
+    <div class="white-text center" style="padding:12px;font-weight:200;padding-bottom:28px">
+        © 2017 Copyright | NFAC
+    </div>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="theWebAPI/jQuery.min.js"></script>
+    <script type="text/javascript" src="theWebAPI/materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+        //getMessData();
+    </script>
+</body>
+
+</html>
+
