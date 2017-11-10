@@ -71,7 +71,7 @@
             // take picture from camera
             $('#but_take').click(function(){      
                 navigator.camera.getPicture(onSuccess, onFail, { quality: 20,
-                    destinationType: Camera.DestinationType.DATA_URL 
+                    destinationType: Camera.DestinationType.DATA_URI
                 });
             });
 
@@ -85,7 +85,6 @@
             });
             
             
-
             // Change image source and upload photo to server
             function onSuccess(imageURI) {
                 // Set image source
@@ -139,6 +138,7 @@
 
         <div style="width:100%; text-align:center; padding:10px;">
             <button id='but_take'>Take photo</button>
+            <button id='but_take_new'>Take new photo</button>
             <button id='but_select'>Select photo from Gallery</button>
         </div>
         <p class="b64p"></p>
