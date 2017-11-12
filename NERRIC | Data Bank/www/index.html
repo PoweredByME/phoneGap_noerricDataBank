@@ -256,9 +256,10 @@ function win(r) {
 }
  
 function fail(error) {
-    imageUploadCount++;
-    showImageUploadCount();
-    alert("Error : The Image could not be uploaded. Chack your internet connection");
+    imageUploadCount =0;
+    totalImageUploadCount = 0;
+    //showImageUploadCount();
+    alert("Error : The Image could not be uploaded. Check your internet connection");
     console.log(error);
 }
 
