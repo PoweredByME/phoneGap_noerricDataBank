@@ -43,7 +43,7 @@
                         <img src="img/logo(1).png" style="width:60vw">
                     </div>
                     <div class="container" style="margin-top: 48px;">
-                        <p class="white-text" style="font-weight:200;font-size:12px;">UPLOAD FROM</p>
+                        <p class="white-text" style="font-weight:300;font-size:12px;">UPLOAD FROM</p>
                         <button class="btn white black-text z-depth-1 waves-effect waves-light" id="but-sel" style="border-radius:50px;background:#f5f5f5">GALLARY</button><br><br>
                         <button class="btn white black-text z-depth-1 waves-effect waves-light" id="but-take" style="border-radius:50px;background:#f5f5f5">CAMERA</button><br><br>
                         <a class="waves-effect waves-light btn modal-trigger instruction white black-text" href="#modal1" style="border-radius:50px;background:#f5f5f5">ABOUT</a>
@@ -272,7 +272,7 @@ function showImageUploadCount(){
         $(".instruction").removeClass("hide");
         imageUploadCount = 0;
         totalImageUploadCount = 0;
-	    alert("Success : Images Uploaded. Thank you");
+	    Materialize.toast('Images Uploaded. Thank you', 3000, 'rounded')
     }else{
         $(".uploaded-image-count").removeClass("hide");
         $(".image-loader").removeClass("hide");
