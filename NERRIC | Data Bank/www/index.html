@@ -224,8 +224,8 @@ function onSuccess(imageURI) {
     sentDataToServer(imageURI);                
 }
 function onFail(message) {
-    alert('Failed because: ' + message);
-    //Materialize.toast('Error : The Image failed to upload. Check your internet connection', 2000);
+    //alert('Failed because: ' + message);
+    Materialize.toast(message, 2000);
 }
 
 var imageUploadCount = 0;
@@ -261,7 +261,7 @@ var failError = 0;
 function fail(error) {
     if(failError === 0){
         //alert("Error : The Image could not be uploaded. Check your internet connection");
-        Materialize.toast('Error : The Image failed to upload. Check your internet connection', 2000);
+        Materialize.toast('Error : The Image failed to upload. Check your internet connection', 3000);
     }
     failError = 1;
     imageUploadCount =0;
@@ -281,7 +281,7 @@ function showImageUploadCount(){
         imageUploadCount = 0;
         totalImageUploadCount = 0;
         if(failError === 0){
-	       Materialize.toast('Images Uploaded. Thank you', 2000);
+	       Materialize.toast('Images Uploaded. Thank you', 3000);
         }
     }else{
         $(".uploaded-image-count").removeClass("hide");
